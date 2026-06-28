@@ -1,0 +1,374 @@
+.education-section {
+  padding: 4rem 2rem;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section Header */
+.education-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.header-line {
+  width: 60px;
+  height: 2px;
+  background: var(--gradient-main);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.section-title .gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Education Wrapper */
+.education-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Left Side - SVG Only */
+.education-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+/* SVG Background - Smaller */
+.education-bg-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.animation-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.education-orb {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: orbPulse 4s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.08);
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.orb-gradient {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 240, 255, 0.08), rgba(124, 58, 237, 0.03));
+}
+
+.orb-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--accent);
+  border-bottom-color: var(--accent-purple);
+  animation: spin 8s linear infinite;
+  z-index: 3;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 240, 255, 0.05); }
+  50% { transform: scale(1.02); box-shadow: 0 0 50px rgba(0, 240, 255, 0.08); }
+}
+
+/* Right Side - Cards */
+.education-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.education-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.education-card:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.03), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.education-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-duration {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.8rem;
+  background: rgba(0, 240, 255, 0.1);
+  padding: 0.2rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+}
+
+.card-body {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover .card-icon {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.card-details {
+  flex: 1;
+}
+
+.card-details h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.card-institution {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.card-grade {
+  color: var(--accent-purple);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.course-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  padding: 0.15rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.course-badge:hover {
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(0, 240, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .education-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .education-animation {
+    order: 2;
+  }
+
+  .education-cards-wrapper {
+    order: 1;
+  }
+
+  .education-bg-svg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .animation-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .education-orb {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .education-header {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .header-line {
+    width: 40px;
+  }
+
+  .card-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1rem;
+  }
+
+  .card-details h3 {
+    font-size: 1rem;
+  }
+
+  .card-institution {
+    font-size: 0.85rem;
+  }
+
+  .education-card {
+    padding: 1.2rem;
+  }
+
+  .education-bg-svg {
+    width: 50%;
+    height: 50%;
+  }
+
+  .animation-container {
+    width: 140px;
+    height: 140px;
+  }
+
+  .education-orb {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .header-line {
+    width: 30px;
+  }
+
+  .education-card {
+    padding: 1rem;
+  }
+
+  .card-duration {
+    font-size: 0.7rem;
+  }
+
+  .card-details h3 {
+    font-size: 0.95rem;
+  }
+
+  .course-badge {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .education-bg-svg {
+    width: 40%;
+    height: 40%;
+  }
+
+  .animation-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .education-orb {
+    width: 70px;
+    height: 70px;
+  }
+}
