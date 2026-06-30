@@ -16,7 +16,7 @@ export const portfolioData = {
   linkedin: "https://www.linkedin.com/in/aurosmitasahoo/",
   leetcode: "https://leetcode.com/aurosmitasahoo/",
   email: "aurosmitasahoo4@gmail.com",
-  twitter: "", // Optional - leave empty if not available
+  twitter: "",
   
   // Projects
   projects: [
@@ -30,7 +30,8 @@ export const portfolioData = {
       metrics: { value: "AI-Powered", label: "Placement Mentor" },
       status: "Live",
       category: "Full Stack",
-      featured: true
+      featured: true,
+      image: "/assets/projects/jobgenie.jpg"
     },
     {
       id: 2,
@@ -42,7 +43,8 @@ export const portfolioData = {
       metrics: { value: "Real-Time", label: "Order Tracking" },
       status: "Live",
       category: "Full Stack",
-      featured: true
+      featured: true,
+      image: "/assets/projects/dineflow.jpg"
     },
     {
       id: 3,
@@ -54,7 +56,8 @@ export const portfolioData = {
       metrics: { value: "~200ms", label: "API Response Time" },
       status: "Live",
       category: "Full Stack",
-      featured: true
+      featured: true,
+      image: "/assets/projects/prabandhx.jpg"
     }
   ],
   
@@ -73,7 +76,6 @@ export const portfolioData = {
       duration: "2021 - 2023",
       institution: "Jhadeswar Higher Secondary School, Balesore, Odisha, India",
       cgpa: "Percentage: 83%",
-      
     },
     {
       id: 3,
@@ -81,17 +83,16 @@ export const portfolioData = {
       duration: "2011 - 2021",
       institution: "Dibyabhumi Kolha, Bhadrak, Odisha, India",
       cgpa: "Percentage: 90%",
-      
     }
   ],
   
-  // Certificates - You can add your actual certificates here
+  // Certificates
   certificates: [
     {
       id: 1,
       name: "Spring Boot Microservices",
       issuer: "Udemy",
-      image: "/assets/cert1.jpg" // Replace with actual image path
+      image: "/assets/cert1.jpg"
     },
     {
       id: 2,
@@ -116,7 +117,7 @@ export const portfolioData = {
   // Extra Info
   extras: {
     hackathons: "2nd Place at Smart India Hackathon 2025",
-    internships: "", // Add if you have any
+    internships: "",
     openSource: "Active Open Source Contributor"
   }
 };
