@@ -1,56 +1,416 @@
 .certificates-section {
   padding: 6rem 2rem;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
+  position: relative;
 }
 
-.certificates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+/* Header */
+.certificates-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-line {
+  width: 60px;
+  height: 2px;
+  background: var(--gradient-main);
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.section-title .gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Scroll Wrapper */
+.certificates-scroll-wrapper {
+  position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 3.5rem;
 }
 
-.certificate-card {
-  padding: 1.5rem;
-  border-radius: 16px;
-  text-align: center;
-  transition: all 0.3s ease;
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  font-size: 1.2rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
-.certificate-image-wrapper {
-  width: 100%;
-  height: 150px;
+.scroll-btn:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.scroll-btn.left {
+  left: -5px;
+}
+
+.scroll-btn.right {
+  right: -5px;
+}
+
+/* Scroll Container - HIDE SCROLLBAR */
+.certificates-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0.5rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.certificates-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+  height: 0;
+  width: 0;
+}
+
+/* Card */
+.certificate-card-scroll {
+  min-width: 320px;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  background: var(--bg-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
-.certificate-image {
+.certificate-card-scroll:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 240, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+.cert-card-scroll-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-number-scroll {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.08);
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Image Wrapper */
+.cert-image-wrapper-scroll {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cert-thumbnail-scroll {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
-.certificate-card:hover .certificate-image {
+.certificate-card-scroll:hover .cert-thumbnail-scroll {
   transform: scale(1.05);
 }
 
-.certificate-info h4 {
-  font-size: 1rem;
+.cert-image-overlay-scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.cert-image-overlay-scroll svg {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.cert-image-overlay-scroll span {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.certificate-card-scroll:hover .cert-image-overlay-scroll {
+  opacity: 1;
+}
+
+/* Fallback */
+.cert-fallback-scroll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.cert-fallback-scroll svg {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+/* Info */
+.cert-info-scroll {
+  padding: 1.2rem 1.5rem;
+  position: relative;
+}
+
+.cert-name-scroll {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+.cert-issuer-scroll {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
   margin-bottom: 0.2rem;
 }
 
-.certificate-info p {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
+.cert-year-scroll {
+  font-size: 0.7rem;
+  color: var(--text-muted);
 }
 
+/* Modal */
+.cert-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.cert-modal {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.cert-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.cert-modal-content {
+  text-align: center;
+}
+
+.cert-modal-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.cert-modal-issuer {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.cert-modal-image {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.cert-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.cert-placeholder span {
+  font-size: 4rem;
+}
+
+.cert-placeholder small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .certificates-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  .certificates-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .certificates-header {
+    gap: 1rem;
+  }
+
+  .header-line {
+    width: 40px;
+  }
+
+  .certificates-scroll-wrapper {
+    padding: 0 1.5rem;
+  }
+
+  .certificate-card-scroll {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+
+  .cert-image-wrapper-scroll {
+    height: 170px;
+  }
+
+  .cert-modal {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .cert-modal-content h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .header-line {
+    width: 30px;
+  }
+
+  .certificates-scroll-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .certificate-card-scroll {
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .cert-image-wrapper-scroll {
+    height: 150px;
+  }
+
+  .cert-name-scroll {
+    font-size: 0.85rem;
+  }
+
+  .cert-info-scroll {
+    padding: 1rem;
+  }
+
+  .cert-modal {
+    padding: 1.2rem;
   }
 }

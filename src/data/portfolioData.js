@@ -30,8 +30,7 @@ export const portfolioData = {
       metrics: { value: "AI-Powered", label: "Placement Mentor" },
       status: "Live",
       category: "Full Stack",
-      featured: true,
-      image: "/assets/projects/jobgenie.jpg"
+      featured: true
     },
     {
       id: 2,
@@ -43,8 +42,7 @@ export const portfolioData = {
       metrics: { value: "Real-Time", label: "Order Tracking" },
       status: "Live",
       category: "Full Stack",
-      featured: true,
-      image: "/assets/projects/dineflow.jpg"
+      featured: true
     },
     {
       id: 3,
@@ -56,8 +54,7 @@ export const portfolioData = {
       metrics: { value: "~200ms", label: "API Response Time" },
       status: "Live",
       category: "Full Stack",
-      featured: true,
-      image: "/assets/projects/prabandhx.jpg"
+      featured: true
     }
   ],
   
@@ -86,38 +83,50 @@ export const portfolioData = {
     }
   ],
   
-  // Certificates
+  // Certificates - Updated with correct paths
   certificates: [
     {
       id: 1,
-      name: "Spring Boot Microservices",
-      issuer: "Udemy",
-      image: "/assets/cert1.jpg"
+      name: "Infotact Internship Certificate",
+      issuer: "Web Developement Internship ",
+      image: "/assets/Infotact_certificate.jpeg"
     },
     {
       id: 2,
-      name: "React - The Complete Guide",
-      issuer: "Udemy",
-      image: "/assets/cert2.jpg"
+      name: "React Certificate",
+      issuer: "React ",
+      image: "/assets/React_Certificate.jpeg"
     },
     {
       id: 3,
-      name: "Data Structures & Algorithms",
-      issuer: "NPTEL",
-      image: "/assets/cert3.jpg"
+      name: "Advanced SQL Certificate",
+      issuer: "Advanced SQL",
+      image: "/assets/AdvancedSQL.jpeg"
     },
     {
       id: 4,
-      name: "Machine Learning Specialization",
-      issuer: "Coursera",
-      image: "/assets/cert4.jpg"
+      name: "Code Alpha Certificate",
+      issuer: "Full Stack Development Internship",
+      image: "/assets/Code Alpha.jpeg"
+    },
+    {
+      id: 5,
+      name: "Code for Success Certificate",
+      issuer: "Full Stack Dvelopment Program",
+      image: "/assets/Code for Success.jpeg"
+    },
+    {
+      id: 6,
+      name: "ECWoc Certificate",
+      issuer: "ECWoc - Elite Coders Winter of Code",
+      image: "/assets/ECWoc_Certificate.jpeg"
     }
   ],
   
   // Extra Info
   extras: {
     hackathons: "2nd Place at Smart India Hackathon 2025",
-    internships: "",
+    internships: "Infotact Internship",
     openSource: "Active Open Source Contributor"
   }
 };
