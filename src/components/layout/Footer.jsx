@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+// Remove SiLeetcode since it's not used
+// import { SiLeetcode } from 'react-icons/si';
 import { Link } from 'react-scroll';
 import './Footer.css';
 
@@ -10,7 +12,6 @@ const Footer = () => {
   const socialLinks = [
     { icon: <FaGithub />, url: "https://github.com/Auro993", label: "GitHub" },
     { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/aurosmitasahoo/", label: "LinkedIn" },
-    { icon: <SiLeetcode />, url: "https://leetcode.com/aurosmitasahoo/", label: "LeetCode" },
     { icon: <FaEnvelope />, url: "mailto:aurosmitasahoo4@gmail.com", label: "Email" },
   ];
 
