@@ -1,31 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
+import emailjs from '@emailjs/browser';
 import { portfolioData } from '../../../data/portfolioData';
 import './Contact.css';
 
 const Contact = () => {
   const { email, github, linkedin, leetcode, location } = portfolioData;
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // EmailJS Credentials
+  const SERVICE_ID = 'service_y9vfz3t';
+  const TEMPLATE_ID = 'xro15eg';
+  const PUBLIC_KEY = 'aFwzLA66fWZrxBkp';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simulate sending email
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      const result = await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        form.current,
+        PUBLIC_KEY
+      );
+
+      if (result.text === 'OK') {
+        setSubmitStatus('success');
+        form.current.reset();
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }
+    } catch (error) {
+      console.error('Email error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const contactInfo = [
@@ -164,39 +180,36 @@ const Contact = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Side - Contact Form */}
+        {/* Right Side - Contact Form with EmailJS */}
         <motion.form 
           className="contact-form"
+          ref={form}
           variants={itemVariants}
           onSubmit={handleSubmit}
         >
           <div className="form-group">
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="user_name">Your Name</label>
             <div className="input-wrapper">
               <span className="input-icon">👤</span>
               <input 
                 type="text" 
-                id="name"
-                name="name"
+                id="user_name"
+                name="user_name"
                 placeholder="John Doe"
-                value={formData.name}
-                onChange={handleChange}
                 required
               />
             </div>
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Your Email</label>
+            <label htmlFor="user_email">Your Email</label>
             <div className="input-wrapper">
               <span className="input-icon">✉️</span>
               <input 
                 type="email" 
-                id="email"
-                name="email"
+                id="user_email"
+                name="user_email"
                 placeholder="john@example.com"
-                value={formData.email}
-                onChange={handleChange}
                 required
               />
             </div>
@@ -210,8 +223,6 @@ const Contact = () => {
                 name="message"
                 rows="4"
                 placeholder="Tell me about your project or opportunity..."
-                value={formData.message}
-                onChange={handleChange}
                 required
               />
             </div>
@@ -248,6 +259,16 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
             >
               ✅ Message sent successfully! I'll get back to you soon.
+            </motion.div>
+          )}
+
+          {submitStatus === 'error' && (
+            <motion.div 
+              className="error-message"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              ❌ Failed to send. Please try again or email me directly.
             </motion.div>
           )}
         </motion.form>

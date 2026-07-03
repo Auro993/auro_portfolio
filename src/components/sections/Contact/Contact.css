@@ -451,3 +451,13 @@
     padding: 0.7rem 1.5rem;
   }
 }
+/* Error Message */
+.error-message {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 77, 77, 0.06);
+  border: 1px solid rgba(255, 77, 77, 0.1);
+  border-radius: 10px;
+  color: #FF4D4D;
+  font-size: 0.9rem;
+  text-align: center;
+}

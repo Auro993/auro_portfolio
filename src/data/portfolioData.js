@@ -25,8 +25,8 @@ export const portfolioData = {
       title: "JobGenie - AI Placement Mentor",
       description: "Full-stack AI platform with AI Mentor Chat, Resume Analyzer (ATS scoring + correction), Mock Interview, Personalized Roadmaps, Coding Practice, Resume Builder (5+ templates), GitHub Insights, LinkedIn Studio & Progress Dashboard.",
       tech: ["React", "TypeScript", "Spring Boot", "MySQL", "JWT", "Google Gemini API", "REST APIs"],
-      github: "https://github.com/Auro993/jobgenie",
-      demo: "https://jobgenie-app-vert.vercel.app",
+      github: "https://github.com/Auro993/ai-placement-mentor",
+      demo: "ai-placement-mentor-chi.vercel.app",
       metrics: { value: "AI-Powered", label: "Placement Mentor" },
       status: "Live",
       category: "Full Stack",
@@ -55,8 +55,48 @@ export const portfolioData = {
       status: "Live",
       category: "Full Stack",
       featured: true
+    },
+    {
+      id: 4,
+      title: "AgriConnect – Full Stack Agricultural Marketplace",
+      description: "Built a full-stack agricultural marketplace connecting farmers and buyers with real-time mandi price tracking, AI crop disease detection, weather-based advisory, equipment rental system, and JWT-based role authentication. Implemented smart irrigation scheduling, price alerts, equipment booking, and interactive dashboards; optimized APIs to ~150ms response time.",
+      tech: ["React.js", "Node.js", "Express.js", "MySQL", "JWT", "Sequelize"],
+      github: "https://github.com/Auro993/AgriConnect",
+      demo: "", // Add a live demo link if you have one
+      metrics: { value: "~150ms", label: "API Response Time" },
+      status: "Completed",
+      category: "Full Stack",
+      featured: true,
+      image: "/assets/projects/agri-connect.jpg" // Add a project image
+    },
+    {
+      id: 5,
+      title: "TransMonitor – Smart Transformer Health Monitoring System",
+      description: "Developed an IoT-based transformer monitoring system that collects real-time sensor data using NodeMCU and sends it to a backend server for analysis. Built a full-stack dashboard using React.js and Flask to visualize transformer parameters and monitor device status in real time. Implemented a predictive analytics model using Scikit-learn to identify potential transformer faults for early maintenance alerts.",
+      tech: ["IoT", "NodeMCU (ESP8266)", "Flask", "React.js", "Python", "Scikit-learn"],
+      github: "https://github.com/Auro993/TransMonitor",
+      demo: "",
+      metrics: { value: "Predictive", label: "Maintenance Alerts" },
+      status: "Completed",
+      category: "Full Stack",
+      featured: true,
+      image: "/assets/projects/trans-monitor.jpg"
+    },
+    {
+      id: 6,
+      title: "SmartRasoi – Full Stack Recipe Management System",
+      description: "Developed a full-stack web application using Node.js, Express, MySQL (Sequelize), and React (Vite + TypeScript). Designed RESTful APIs with MVC architecture and implemented complete CRUD functionality. Integrated frontend with backend APIs and managed database models and environment configuration.",
+      tech: ["Node.js", "Express", "MySQL", "Sequelize", "React", "TypeScript", "Vite"],
+      github: "https://github.com/Auro993/SmartRasoi", // Please verify this URL
+      demo: "",
+      metrics: { value: "CRUD", label: "Full Functionality" },
+      status: "Completed",
+      category: "Full Stack",
+      featured: true,
+      image: "/assets/projects/smart-rasoi.jpg"
     }
   ],
+
   
   // Education
   education: [

@@ -163,19 +163,6 @@ const Projects = () => {
           </button>
         ))}
       </div>
-
-      {/* Bottom Progress */}
-      <div className="bottom-progress">
-        <div className="progress-track">
-          <div 
-            className="progress-fill" 
-            style={{ width: `${((currentIndex + 1) / totalProjects) * 100}%` }}
-          />
-        </div>
-        <span className="progress-text">
-          {String(currentIndex + 1).padStart(2, '0')} / {String(totalProjects).padStart(2, '0')}
-        </span>
-      </div>
     </section>
   );
 };
