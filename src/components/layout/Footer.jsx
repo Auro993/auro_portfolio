@@ -24,7 +24,6 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {/* Top Section - Divider with gradient */}
       <div className="footer-divider">
         <div className="divider-line"></div>
         <div className="divider-icon">✦</div>
@@ -32,7 +31,6 @@ const Footer = () => {
       </div>
 
       <div className="footer-content">
-        {/* Left Section - Brand */}
         <motion.div 
           className="footer-brand"
           initial={{ opacity: 0, y: 20 }}
@@ -66,7 +64,6 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Center Section - Navigation */}
         <motion.div 
           className="footer-nav"
           initial={{ opacity: 0, y: 20 }}
@@ -91,11 +88,8 @@ const Footer = () => {
             ))}
           </ul>
         </motion.div>
-
-        {/* Right Section - Removed Tech Stack */}
       </div>
 
-      {/* Bottom Section - Copyright */}
       <motion.div 
         className="footer-bottom"
         initial={{ opacity: 0 }}

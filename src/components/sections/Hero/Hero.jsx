@@ -45,54 +45,34 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero-section">
-      {/* Floating 3D Geometric Shapes - 10 Shapes Total */}
       <div className="floating-shapes">
-        {/* Shape 1: Cube (Top Left) */}
         <div className="shape shape-1">
           <div className="cube"></div>
         </div>
-        
-        {/* Shape 2: Sphere (Top Right) */}
         <div className="shape shape-2">
           <div className="sphere"></div>
         </div>
-        
-        {/* Shape 3: Torus/Ring (Bottom Left) */}
         <div className="shape shape-3">
           <div className="torus"></div>
         </div>
-        
-        {/* Shape 4: Pyramid (Bottom Right) */}
         <div className="shape shape-4">
           <div className="pyramid"></div>
         </div>
-        
-        {/* Shape 5: Dodecahedron (Center) */}
         <div className="shape shape-5">
           <div className="dodecahedron"></div>
         </div>
-
-        {/* NEW Shape 6: Star (Top Center) */}
         <div className="shape shape-6">
           <div className="star"></div>
         </div>
-
-        {/* NEW Shape 7: Hexagon (Middle Left) */}
         <div className="shape shape-7">
           <div className="hexagon"></div>
         </div>
-
-        {/* NEW Shape 8: Diamond (Middle Right) */}
         <div className="shape shape-8">
           <div className="diamond"></div>
         </div>
-
-        {/* NEW Shape 9: Cross/Plus (Bottom Center) */}
         <div className="shape shape-9">
           <div className="cross"></div>
         </div>
-
-        {/* NEW Shape 10: Triangle (Center Right) */}
         <div className="shape shape-10">
           <div className="triangle"></div>
         </div>
@@ -107,7 +87,6 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Terminal Window */}
         <div className="terminal-window">
           <div className="terminal-header">
             <span className="dot red"></span>
@@ -127,7 +106,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Main Title */}
         <motion.h1 
           className="hero-title"
           initial={{ opacity: 0, y: 20 }}
@@ -155,7 +133,6 @@ const Hero = () => {
           Building scalable solutions with Spring Boot, React, and AI
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div 
           className="hero-buttons"
           initial={{ opacity: 0 }}
@@ -171,7 +148,6 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        {/* Social Links */}
         <motion.div 
           className="hero-social"
           initial={{ opacity: 0 }}
@@ -192,7 +168,6 @@ const Hero = () => {
           </a>
         </motion.div>
 
-        {/* Stats - Only Location */}
         <motion.div 
           className="hero-stats"
           initial={{ opacity: 0 }}

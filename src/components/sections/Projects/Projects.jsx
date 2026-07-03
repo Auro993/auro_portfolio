@@ -11,7 +11,6 @@ const Projects = () => {
 
   const totalProjects = projects.length;
 
-  // Handle scroll to change project - FULL VIEWPORT
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -33,7 +32,6 @@ const Projects = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [currentIndex, totalProjects]);
 
-  // Smooth scroll to project
   const goToProject = (index) => {
     const targetElement = projectRefs.current[index];
     if (targetElement) {
@@ -43,7 +41,6 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects-section" ref={sectionRef}>
-      {/* Header - Same as Skills Section */}
       <div className="projects-header">
         <h2 className="section-title">
           My <span className="gradient-text">Projects</span>
@@ -51,12 +48,9 @@ const Projects = () => {
         <p className="section-subtitle">Scroll to explore my work</p>
       </div>
 
-      {/* Projects Container - Full Viewport Each */}
       <div className="projects-container">
         {projects.map((project, index) => {
           const isActive = index === currentIndex;
-          
-          // Format tech stack as a code string
           const techString = project.tech.map(t => `'${t}'`).join(', ');
           
           return (
@@ -67,13 +61,11 @@ const Projects = () => {
               style={{ minHeight: '100vh' }}
             >
               <div className="project-content-wrapper">
-                {/* Project Number - Fixed */}
                 <div className="project-number">
                   <span className="number">{String(index + 1).padStart(2, '0')}</span>
                   <span className="total"> / {String(totalProjects).padStart(2, '0')}</span>
                 </div>
 
-                {/* Code-like Display - Full Width */}
                 <div className="project-code-display">
                   <div className="code-line">
                     <span className="code-keyword">const</span>
@@ -124,7 +116,6 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="project-actions">
                   <a
                     href={project.demo}
@@ -149,7 +140,6 @@ const Projects = () => {
         })}
       </div>
 
-      {/* Fixed Navigation - Right Side */}
       <div className="fixed-nav">
         {projects.map((_, index) => (
           <button

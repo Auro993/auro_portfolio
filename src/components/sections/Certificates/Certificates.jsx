@@ -104,7 +104,6 @@ const Certificates = () => {
         </button>
       </div>
 
-      {/* Modal for viewing certificate */}
       <AnimatePresence>
         {selectedCert && (
           <motion.div
