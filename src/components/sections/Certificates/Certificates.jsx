@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaAward, FaTimes, FaEye, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaTimes, FaEye, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { portfolioData } from '../../../data/portfolioData';
 import './Certificates.css';
 
