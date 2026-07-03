@@ -16,7 +16,6 @@ const Projects = () => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
       const scrollY = window.scrollY - sectionRef.current.offsetTop;

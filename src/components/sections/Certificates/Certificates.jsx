@@ -79,7 +79,7 @@ const Certificates = () => {
                       e.target.style.display = 'none';
                       e.target.parentElement.innerHTML = `
                         <div class="cert-fallback-scroll">
-                          <FaAward />
+                          <span>📜</span>
                           <span>${cert.name}</span>
                         </div>
                       `;

@@ -41,7 +41,7 @@ const Hero = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed, words]); // ← Added 'words' to dependency array
+  }, [text, isDeleting, loopNum, typingSpeed, words]);
 
   return (
     <section id="hero" className="hero-section">

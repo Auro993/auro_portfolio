@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-// Remove SiLeetcode since it's not used
-// import { SiLeetcode } from 'react-icons/si';
 import { Link } from 'react-scroll';
 import './Footer.css';
 
